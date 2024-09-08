@@ -1,0 +1,54 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive To-Do List with Delete Icon</title>
+    <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="todo-container">
+        <h1>To-Do List</h1>
+        <div class="input-section">
+            <input type="text" id="new-task" placeholder="Add a new task">
+            <button onclick="addTask()">Add Task</button>
+        </div>
+        <ul class="todo-list" id="task-list">
+            <!-- Tasks will be dynamically added here -->
+        </ul>
+    </div>
+
+    <script>
+        function addTask() {
+            const taskInput = document.getElementById('new-task');
+            const taskList = document.getElementById('task-list');
+
+            if (taskInput.value.trim() !== "") {
+                const li = document.createElement('li');
+                li.classList.add('fade-in');
+                li.innerHTML = `
+                    <span>${taskInput.value}</span> 
+                    <button class="delete-btn" onclick="removeTask(this)">
+                       <i class="fa-solid fa-trash"></i>
+                    </button>
+                `;
+                taskList.appendChild(li);
+                taskInput.value = '';
+            }
+        }
+
+        function removeTask(button) {
+            const taskItem = button.parentElement;
+            taskItem.classList.add('fade-out');
+            setTimeout(() => {
+                taskItem.remove();
+            }, 500); // Delay removal for animation effect
+        }
+    </script>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
