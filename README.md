@@ -1,1 +1,1 @@
-# Basic-todo-list created using htyml css and js which is responsive
+# Basic-todo-list created using html css and js which is responsive
