@@ -23,7 +23,8 @@ body {
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
     z-index: 1;
     backdrop-filter: blur(10px);
 }
@@ -41,7 +42,7 @@ body {
 }
 
 .todo-container h1 {
-    font-size: 32px;
+    font-size: 24px;
     margin-bottom: 20px;
     color: #333;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -52,10 +53,11 @@ body {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    flex-direction: column;
 }
 
 input[type="text"] {
-    width: 70%;
+    width: 100%;
     padding: 15px;
     border: none;
     border-radius: 5px;
@@ -64,6 +66,7 @@ input[type="text"] {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     transition: all 0.3s ease;
+    margin-bottom: 10px;
 }
 
 input[type="text"]:focus {
@@ -79,6 +82,7 @@ button {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    width: 100%;
 }
 
 button:hover {
@@ -97,4 +101,46 @@ button:hover {
     margin: 10px 0;
     border-radius: 10px;
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Media Queries for responsiveness */
+@media (min-width: 600px) {
+    .todo-container {
+        width: 80%;
+        max-width: 500px;
+    }
+
+    .todo-container h1 {
+        font-size: 28px;
+    }
+
+    .input-section {
+        flex-direction: row;
+    }
+
+    input[type="text"] {
+        width: 70%;
+        margin-bottom: 0;
+    }
+
+    button {
+        width: 28%;
+    }
+}
+
+@media (min-width: 768px) {
+    .todo-container h1 {
+        font-size: 32px;
+    }
+
+    input[type="text"] {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 18px;
+    }
+}
